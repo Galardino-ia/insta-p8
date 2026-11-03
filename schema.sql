@@ -431,3 +431,9 @@ $$;
 -- Or run manually in the SQL editor:
 --   DELETE FROM public.unlock_attempts WHERE updated_at < NOW() - INTERVAL '24 hours';
 -- =========================================================================
+CREATE TABLE IF NOT EXISTS public.poll_processed_comments (
+  comment_id TEXT PRIMARY KEY,
+  user_id BIGINT NOT NULL,
+  media_id TEXT,
+  processed_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
